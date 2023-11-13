@@ -46,7 +46,6 @@ export default async function Home() {
       <PromoBanner
         src="/banner-home-02.png"
         alt="Até 55% de desconto em teclados"
-        className="-mt-8"
       />
 
       <div>
