@@ -1,9 +1,9 @@
-import Image from 'next/image'
 import Categories from './components/categories'
 import ProductList from './components/product-list'
 import { prismaClient } from '@/lib/prisma'
 import SectionTitle from './components/section-title'
 import PromoBanner from './components/promo-banner'
+import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area'
 
 export default async function Home() {
   const deals = await prismaClient.product.findMany({
@@ -40,7 +40,10 @@ export default async function Home() {
       </div>
       <div>
         <SectionTitle>Ofertas</SectionTitle>
-        <ProductList products={deals} />
+        <ScrollArea>
+          <ProductList products={deals} />
+          <ScrollBar orientation="horizontal" />
+        </ScrollArea>
       </div>
 
       <PromoBanner
@@ -50,7 +53,10 @@ export default async function Home() {
 
       <div>
         <SectionTitle>Teclados</SectionTitle>
-        <ProductList products={keyboards} />
+        <ScrollArea>
+          <ProductList products={keyboards} />
+          <ScrollBar orientation="horizontal" />
+        </ScrollArea>
       </div>
 
       <PromoBanner
@@ -60,7 +66,10 @@ export default async function Home() {
 
       <div>
         <SectionTitle>Mouses</SectionTitle>
-        <ProductList products={mouses} />
+        <ScrollArea>
+          <ProductList products={mouses} />
+          <ScrollBar orientation="horizontal" />
+        </ScrollArea>
       </div>
     </div>
   )
