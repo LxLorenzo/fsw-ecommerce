@@ -1,5 +1,6 @@
 import { prismaClient } from '@/lib/prisma'
 import Image from 'next/image'
+import ProductImages from './components/product-images'
 
 interface ProductDetailsPageProps {
   params: {
@@ -19,18 +20,8 @@ const ProductDetailsPage = async ({
   if (!product) return null
 
   return (
-    <div className="flex w-full items-center justify-center">
-      <div className="flex items-center justify-center bg-accent p-20">
-        <Image
-          src={product.imageUrls[0]}
-          alt={product.name}
-          sizes="100vw"
-          height={0}
-          width={0}
-          style={{ objectFit: 'cover' }}
-          className="h-auto max-h-[70%] w-auto max-w-[80%]"
-        />
-      </div>
+    <div className="">
+      <ProductImages name={product.name} imageUrls={product.imageUrls} />
     </div>
   )
 }
